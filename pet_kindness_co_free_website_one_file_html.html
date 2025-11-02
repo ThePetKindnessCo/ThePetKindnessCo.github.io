@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Pet Kindness Co. — Pet Education for Healthier, Happier Pets</title>
+  <meta name="description" content="Science‑backed, compassionate pet education. Courses, community workshops, and memberships to help pets and people thrive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* deep slate */
+      --panel:#111827;       /* near-black */
+      --muted:#94a3b8;       /* slate-300 */
+      --brand:#10b981;       /* emerald */
+      --brand-2:#22d3ee;     /* cyan */
+      --text:#e5e7eb;        /* gray-200 */
+      --text-strong:#ffffff; /* white */
+      --ring:rgba(34,211,238,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1223, #0f172a 30%, #0f172a);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(15,23,42,.7);border-bottom:1px solid rgba(148,163,184,.15);z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--text-strong)}
+    .logo-badge{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 30deg, var(--brand), var(--brand-2));display:grid;place-items:center;color:#06121a;font-weight:800}
+    .nav a{opacity:.9;margin-left:18px}
+    .btn{display:inline-grid;place-items:center;padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#06231f;font-weight:700;border:0;cursor:pointer;box-shadow:0 6px 20px rgba(16,185,129,.25);transition:transform .08s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn-outline{background:transparent;color:var(--text);border:1px solid rgba(148,163,184,.35);box-shadow:none}
+    .hero{padding:88px 0 36px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center}
+    .eyebrow{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-2);background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);padding:6px 10px;border-radius:999px}
+    h1{font-size:46px;line-height:1.05;margin:.6rem 0 1rem;color:#fff}
+    .lead{font-size:18px;color:var(--muted);max-width:60ch}
+    .hero-card{background:radial-gradient(1200px 600px at -10% -50%, rgba(34,211,238,.08), transparent 40%), linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.15);padding:22px;border-radius:18px}
+    .hero-img{width:100%;aspect-ratio:4/3;border-radius:14px;object-fit:cover;border:1px solid rgba(148,163,184,.15)}
+    .cta-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+
+    section{padding:60px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:22px}
+    h2{font-size:32px;margin:0;color:#fff}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.15);border-radius:16px;padding:18px}
+    .card h3{margin:6px 0 8px;font-size:20px;color:#fff}
+    .card p{margin:0;color:var(--muted)}
+
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{background:linear-gradient(180deg, rgba(16,185,129,.08), rgba(255,255,255,.02));border:1px solid rgba(16,185,129,.25);border-radius:16px;padding:20px}
+    .price{font-size:32px;font-weight:800;color:#fff}
+    .tag{display:inline-block;margin-bottom:8px;font-size:12px;color:#10b981;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);padding:4px 8px;border-radius:999px}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .faq details{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(148,163,184,.15);padding:16px;border-radius:12px}
+    .faq summary{cursor:pointer;font-weight:600}
+
+    footer{border-top:1px solid rgba(148,163,184,.15);padding:26px 0;color:var(--muted)}
+    .badge{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#06231f;font-weight:800;margin-right:8px}
+
+    /* Responsive */
+    @media (max-width: 980px){.hero-grid{grid-template-columns:1fr}.cards,.pricing,.grid-2{grid-template-columns:1fr}}
+      /* Blog styles */
+    .blog-card h3{margin:6px 0 6px}
+    .blog-meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+    .post-title{font-size:30px;margin:6px 0 8px}
+    .post-body p{line-height:1.7}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top"><span class="logo-badge">PK</span> The Pet Kindness Co.</a>
+      <nav>
+        <a href="#offerings">Offerings</a>
+        <a href="#pricing">Memberships</a>
+        <a href="#about">About</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Science‑backed · Compassion‑forward</span>
+          <h1>Pet education that turns veterinary know‑how into everyday care.</h1>
+          <p class="lead">Simple, visual lessons and community workshops that help pets and people thrive. Built by veterinary professionals with a One Health lens.</p>
+          <div class="cta-row">
+            <a class="btn" href="#offerings">Explore Offerings</a>
+            <a class="btn btn-outline" href="#pricing">Join Memberships</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img class="hero-img" alt="Happy dog and cat with owner learning" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1600&auto=format&fit=crop" />
+          <p style="margin-top:12px;color:var(--muted)">Free, ad‑free website template. Host it on GitHub Pages, Netlify, or Cloudflare Pages at no cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="offerings">
+      <div class="section-head">
+        <h2>What we offer</h2>
+        <a class="btn btn-outline" href="#contact">Book a Workshop</a>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">Online Courses</span>
+          <h3>Pet Wellness Academy</h3>
+          <p>On‑demand, easy‑to‑follow courses that turn veterinary best practices into everyday routines. Topics include vaccines, nutrition, behavior, and zoonoses.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Community</span>
+          <h3>Workshops & Shelter Partnerships</h3>
+          <p>Live, hands‑on education for shelters, schools, and neighborhoods. Reduce preventable illness and keep pets in loving homes.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Membership</span>
+          <h3>Pet Health Memberships</h3>
+          <p>Monthly checklists, live Q&A, printable guides, and early access to new lessons. Ongoing support for pet parents and community partners.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="section-head">
+        <h2>Memberships</h2>
+        <p class="lead">Choose the support that fits your family or organization. Cancel anytime.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card">
+          <span class="tag">Kindness Basic</span>
+          <div class="price">$9<span style="font-size:16px;font-weight:600">/mo</span></div>
+          <ul>
+            <li>Monthly tips & seasonal guides</li>
+            <li>Community forum access</li>
+            <li>Email newsletter</li>
+          </ul>
+          <a class="btn" href="#contact">Join Basic</a>
+        </div>
+        <div class="price-card" style="background:linear-gradient(180deg, rgba(34,211,238,.10), rgba(255,255,255,.02));border-color:rgba(34,211,238,.35)">
+          <span class="tag">Wellness Plus</span>
+          <div class="price">$29<span style="font-size:16px;font-weight:600">/mo</span></div>
+          <ul>
+            <li>Everything in Basic</li>
+            <li>Monthly live Ask‑a‑Vet‑Tech</li>
+            <li>Downloadable checklists & trackers</li>
+          </ul>
+          <a class="btn" href="#contact">Join Plus</a>
+        </div>
+        <div class="price-card" style="background:linear-gradient(180deg, rgba(16,185,129,.12), rgba(255,255,255,.02));border-color:rgba(16,185,129,.4)">
+          <span class="tag">Premium Partner</span>
+          <div class="price">$59<span style="font-size:16px;font-weight:600">/mo</span></div>
+          <ul>
+            <li>For shelters & pet stores</li>
+            <li>Staff access + workshop discounts</li>
+            <li>Co‑branded resources</li>
+          </ul>
+          <a class="btn" href="#contact">Become a Partner</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="grid-2">
+        <div>
+          <h2>About The Pet Kindness Co.</h2>
+          <p class="lead">Founded by veterinary professionals, we translate science into simple, compassionate care. Our One Health approach connects people, pets, and the planet.</p>
+          <ul>
+            <li>Evidence‑based lessons designed for busy owners</li>
+            <li>Inclusive, community‑driven workshops</li>
+            <li>Practical tools you can use the same day</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">What makes us different</h3>
+          <p>We combine veterinary expertise with approachable storytelling and clear visuals so learning feels easy—not intimidating. Our goal is prevention, confidence, and kindness.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is this template really free?</summary>
+        <p>Yes. You can use it as‑is or customize it. Host it on GitHub Pages, Netlify, or Cloudflare Pages at zero cost.</p>
+      </details>
+      <details>
+        <summary>Can I change the name, colors, and text?</summary>
+        <p>Absolutely—edit this single HTML file. Swap the brand colors in <code>:root</code> and update the content.</p>
+      </details>
+      <details>
+        <summary>How do I collect inquiries or bookings?</summary>
+        <p>Use the contact form below (opens an email) or replace the <code>mailto:</code> with a form provider (e.g., Tally, Google Forms) for free.</p>
+      </details>
+    </section>
+
+    <section id="contact">
+      <div class="grid-2">
+        <div>
+          <h2>Contact</h2>
+          <p class="lead">Ready to learn more or book a workshop? Send us a note and we'll reply within 1–2 business days.</p>
+          <div class="card">
+            <p><span class="badge">@</span> Email: <a href="mailto:hello@petkindness.co?subject=Inquiry%20from%20Website">hello@petkindness.co</a></p>
+            <p><span class="badge">#</span> Instagram/TikTok: <strong>@petkindnessco</strong></p>
+            <p><span class="badge">★</span> Newsletter: Replace this with your free email list provider (Buttondown/Substack)</p>
+          </div>
+        </div>
+        <form class="card" onsubmit="window.location.href='mailto:hello@petkindness.co?subject=Inquiry%20from%20Website&body='+encodeURIComponent(document.getElementById('msg').value); return false;">
+          <label for="msg" style="display:block;margin-bottom:8px;font-weight:600">Quick message</label>
+          <textarea id="msg" rows="6" placeholder="Write your message here..." style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(148,163,184,.25);background:#0b1223;color:var(--text)"></textarea>
+          <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+            <button class="btn" type="submit">Send Email</button>
+            <a class="btn btn-outline" href="#offerings">See Offerings</a>
+          </div>
+          <small style="color:var(--muted);display:block;margin-top:10px">No data is stored—your email client will open with your message.</small>
+        </form>
+      </div>
+    </section>
+      <section id="blog">
+      <div class="section-head">
+        <h2>Blog</h2>
+        <p class="lead">Vet‑guided tips, myth‑busting, and One Health stories for everyday pet care.</p>
+      </div>
+      <div id="blog-list" class="cards"></div>
+      <article id="blog-post" class="card" style="display:none"></article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>&copy; <span id="year"></span> The Pet Kindness Co. · All rights reserved.</div>
+      <div>Built with ❤ — Free, open source template.</div>
+    </div>
+  </footer>
+
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Simple client-side blog ---
+    const posts = [
+      {
+        slug: 'pet-first-aid-essentials',
+        title: 'Pet First‑Aid Essentials: What Every Owner Should Know',
+        date: '2025-11-02',
+        summary: 'From safe muzzling to when to head to the ER, here are the basics to feel prepared before an emergency.',
+        body: `
+          <p>Emergencies are stressful, but preparation makes a difference. Start with a <strong>kit</strong>: gauze, non‑adhesive pads, tape, blunt‑tip scissors, digital thermometer (lubricated), saline for flushing, tweezers, and a spare leash.</p>
+          <p><strong>When to go to the ER:</strong> breathing difficulty, uncontrolled bleeding, collapse, seizures, toxin exposure, or any trauma from a fall/car strike. Call ahead if you can.</p>
+          <p><strong>Do:</strong> keep yourself safe (a painful pet may bite), apply direct pressure to bleeding, and transport promptly. <strong>Don’t:</strong> give human meds unless instructed by a vet/poison control.</p>
+          <p>Consider taking our hands‑on <em>First‑Aid for Pet Owners</em> workshop for live practice.</p>
+        `
+      },
+      {
+        slug: 'vaccines-and-preventive-care',
+        title: 'Vaccines & Preventive Care: A Simple Owner Guide',
+        date: '2025-10-28',
+        summary: 'Core vs. lifestyle vaccines, parasite prevention, and how schedules work without the jargon.',
+        body: `
+          <p>Core vaccines protect against widespread, severe diseases. Lifestyle vaccines depend on travel, boarding, and local risk. Ask your clinic about rabies, parvo/distemper, leptospirosis, bordetella, and influenza based on your pet’s exposure.</p>
+          <p>Parasite prevention matters year‑round in many regions—think heartworm, fleas, and ticks. Prevention is safer (and cheaper) than treatment.</p>
+          <p>Keep records handy and set reminders so boosters aren’t missed.</p>
+        `
+      }
+    ];
+
+    const listEl = document.getElementById('blog-list');
+    const postEl = document.getElementById('blog-post');
+
+    function renderList(){
+      if(!listEl) return;
+      listEl.innerHTML = posts.map(p => `
+        <article class="card blog-card">
+          <span class="tag">Article</span>
+          <h3><a href="#post/${p.slug}">${p.title}</a></h3>
+          <div class="blog-meta">${new Date(p.date).toLocaleDateString()}</div>
+          <p>${p.summary}</p>
+          <p style="margin-top:10px"><a class="btn btn-outline" href="#post/${p.slug}">Read</a></p>
+        </article>
+      `).join('');
+    }
+
+    function renderPost(slug){
+      const p = posts.find(x => x.slug === slug);
+      if(!p){
+        postEl.style.display = 'block';
+        postEl.innerHTML = `<p>Post not found. <a href="#blog">Back to blog</a></p>`;
+        return;
+      }
+      postEl.style.display = 'block';
+      postEl.innerHTML = `
+        <div class="tag">Article</div>
+        <div class="post-title">${p.title}</div>
+        <div class="blog-meta">${new Date(p.date).toLocaleDateString()}</div>
+        <div class="post-body">${p.body}</div>
+        <p style="margin-top:14px"><a class="btn btn-outline" href="#blog">Back to blog</a></p>
+      `;
+      // Scroll into view smoothly
+      postEl.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    function route(){
+      const hash = window.location.hash || '#blog';
+      const m = hash.match(/^#post\/(.+)$/);
+      if(m){
+        // show single post
+        document.getElementById('blog').style.display = 'block';
+        listEl.style.display = 'none';
+        renderPost(m[1]);
+      } else {
+        // show list
+        if(listEl){ listEl.style.display = 'grid'; }
+        if(postEl){ postEl.style.display = 'none'; }
+      }
+    }
+
+    window.addEventListener('hashchange', route);
+    renderList();
+    route();
+  </script>
+</body>
+</html>
